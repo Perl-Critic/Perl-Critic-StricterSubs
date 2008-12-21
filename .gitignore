@@ -1,0 +1,13 @@
+/Build
+/MANIFEST
+/META.yml
+/Makefile
+/Perl-Critic-StricterSubs-*
+/README
+/_build*
+/blib*
+/cover_db
+/nytprof
+/nytprof.out
+/pod2htmd.tmp
+/pod2htmi.tmp

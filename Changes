@@ -1,0 +1,43 @@
+#######################################################################
+#      $URL$
+#     $Date$
+#   $Author$
+# $Revision$
+########################################################################
+
+[1.xxx] Released on 2008-xx-xx
+
+    "use 5.006001" in Makefile.PL and Build.PL.
+
+[0.03] Released on 2008-01-10
+
+     Fixed test failures due to incompatibility with newer
+     PPI versions.  This distro now requires PPI 1.2 vis-a-vi
+     Perl-Critic 1.080.  Thanks cpantesters!
+
+[0.02] Released on 2007-07-01
+
+     ProhibitCallsToUndeclaredSubs is now configurable to exempt specific
+     packages and subroutines.  See docs for details.
+
+     Added support for blocks-of-constants in ProhibitCallsToUndeclaredSubs.
+     For example: use constant {FOO => 1, BAR => 2);
+
+     RequireExplicitInclusion now considers all "include" statements.  So
+     a conditional or lexical "require" will now satisfy the policy, even
+     if that condition is never satisfied during run-time, or the package
+     is included in the wrong scope.
+
+     Refactored common code into the StricterSubs::Utils module.
+
+     Eliminated certain flavors of false-positives in several Policies.
+
+     Improved caching gives performance boost when analyzing many files.
+
+     Documented diagnostic messages.
+
+     Now requires Perl-Critic-1.052+
+
+[0.01] Released on 2007-04-12
+
+     Beta release.
