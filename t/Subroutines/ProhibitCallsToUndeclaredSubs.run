@@ -303,6 +303,20 @@ if ( require Test::Perl::Critic ){
     all_critic_ok();
 }
 
+## name Readonly RT #41858
+## parms { exempt_subs => 'Readonly::Readonly Readonly::Scalar Readonly::Array Readonly::Hash' }
+## failures 0
+## cut
+
+use 5.010;
+use Readonly;
+Readonly my $HI => 50;
+Readonly::Scalar my $HI => 50;
+Readonly::Array my @HI => qw< foo bar >;
+Readonly::Hash my %HI => ( foo => 'bar' );
+say $HI;
+
+
 ##############################################################################
 # Local Variables:
 #   mode: cperl
