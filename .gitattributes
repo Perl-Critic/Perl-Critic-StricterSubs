@@ -23,7 +23,6 @@ t/40_perlcriticrc -text
 t/93_version.t -text
 t/94_includes.t -text
 t/95_kwalitee.t -text
-t/97_spelling.t -text
 t/98_pod_syntax.t -text
 t/99_pod_coverage.t -text
 t/Modules/RequireExplicitInclusion.run -text
