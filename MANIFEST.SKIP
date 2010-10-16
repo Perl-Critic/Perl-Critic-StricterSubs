@@ -50,3 +50,4 @@
 
 # Avoid my Ant build script
 ^build\.xml$
+^MYMETA.yml$
