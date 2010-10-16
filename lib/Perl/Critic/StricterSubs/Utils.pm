@@ -454,12 +454,12 @@ Perl::Critic::StricterSubs::Utils
 
 =head1 AFFILIATION
 
-This module is part of L<Perl::Critic::StricterSubs>.
+This module is part of L<Perl::Critic::StricterSubs|Perl::Critic::StricterSubs>.
 
 =head1 DESCRIPTION
 
 This module holds utility methods that are shared by other modules in the
-L<Perl::Critic::StricterSubs> distro.  Until this distro becomes more mature,
+L<Perl::Critic::StricterSubs|Perl::Critic::StricterSubs> distro.  Until this distro becomes more mature,
 I would discourage you from using these subs outside of this distro.
 
 =head1 IMPORTABLE SUBS
@@ -468,16 +468,16 @@ I would discourage you from using these subs outside of this distro.
 
 =item C<parse_quote_words( $qw_elem )>
 
-Gets the words from a L<PPI::Token::Quotelike::Words>.
+Gets the words from a L<PPI::Token::Quotelike::Words|PPI::Token::Quotelike::Words>.
 
 =item C<parse_simple_list( $list_node )>
 
-Returns the string literals from a L<PPI::Structure::List>.
+Returns the string literals from a L<PPI::Structure::List|PPI::Structure::List>.
 
 =item C<parse_literal_list( @nodes )>
 
 Returns the string literals contained anywhere in a collection of
-L<PPI::Node>s.
+L<PPI::Node|PPI::Node>s.
 
 =item C<find_declared_subroutine_names( $doc )>
 
@@ -569,7 +569,7 @@ stripped off; i.e. C<&foo> will be returned as "foo".
 
 =head1 SEE ALSO
 
-L<Exporter>
+L<Exporter|Exporter>
 
 =head1 AUTHOR
 

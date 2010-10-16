@@ -130,7 +130,7 @@ Perl::Critic::Policy::Subroutines::ProhibitCallsToUndeclaredSubs
 
 =head1 AFFILIATION
 
-This policy is part of L<Perl::Critic::StricterSubs>.
+This policy is part of L<Perl::Critic::StricterSubs|Perl::Critic::StricterSubs>.
 
 =head1 DESCRIPTION
 
@@ -138,11 +138,11 @@ This Policy checks that every unqualified subroutine call has a matching
 subroutine declaration in the current file, or that it explicitly appears in
 the import list for one of the included modules.
 
-Some modules do not use the L<Exporter> interface, and rely on other
+Some modules do not use the L<Exporter|Exporter> interface, and rely on other
 mechanisms to export symbols into your code.  In those cases, this Policy will
 report a false violation.  However, you can instruct this policy to ignore a
 particular subroutine name, as long as the appropriate package has been
-included in your file.  See L<"CONFIGURATION"> for more details.
+included in your file.  See L</"CONFIGURATION"> for more details.
 
 =head1 CONFIGURATION
 

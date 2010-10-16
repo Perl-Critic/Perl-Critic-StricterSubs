@@ -236,7 +236,7 @@ Perl::Critic::Policy::Modules::RequireExplicitInclusion
 
 =head1 AFFILIATION
 
-This policy is part of L<Perl::Critic::StricterSubs>.
+This policy is part of L<Perl::Critic::StricterSubs|Perl::Critic::StricterSubs>.
 
 =head1 DESCRIPTION
 
@@ -404,14 +404,14 @@ This warning happens when the file under analysis contains multiple packages,
 which is not currently supported.  This Policy will simply ignore any file
 with multiple packages.
 
-L<Perl::Critic> advises putting multiple packages in one file, and has
+L<Perl::Critic|Perl::Critic> advises putting multiple packages in one file, and has
 additional Policies to help enforce that.
 
 =back
 
 =head1 SEE ALSO
 
-L<Perl::Critic::Policy::Modules::ProhibitMultiplePackages>
+L<Perl::Critic::Policy::Modules::ProhibitMultiplePackages|Perl::Critic::Policy::Modules::ProhibitMultiplePackages>
 
 =head1 AUTHOR
 

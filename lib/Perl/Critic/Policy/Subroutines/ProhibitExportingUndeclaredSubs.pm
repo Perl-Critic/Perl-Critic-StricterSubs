@@ -82,7 +82,7 @@ Perl::Critic::Policy::Subroutines::ProhibitExportingUndeclaredSubs
 
 =head1 AFFILIATION
 
-This policy is part of L<Perl::Critic::StricterSubs>.
+This policy is part of L<Perl::Critic::StricterSubs|Perl::Critic::StricterSubs>.
 
 =head1 DESCRIPTION
 
