@@ -154,7 +154,7 @@ sub find_declared_subroutine_names {
     return if not $sub_nodes;
 
     my @sub_names = map { $_->name() } @{ $sub_nodes };
-    for (@sub_names) { s{\A .*::}{}mx };  # Remove leading package name
+    for (@sub_names) { s{\A .*::}{}mxs };  # Remove leading package name
     return @sub_names;
 }
 
@@ -352,8 +352,8 @@ sub _smells_like_filehandle {
 sub get_all_subs_from_list_of_symbols {
     my @symbols = @_;
 
-    my @sub_names = grep { m/\A [&\w]/mx } @symbols;
-    for (@sub_names) { s/\A &//mx; } # Remove optional sigil
+    my @sub_names = grep { m/\A [&\w]/mxs } @symbols;
+    for (@sub_names) { s/\A &//mxs; } # Remove optional sigil
 
     return @sub_names
 }

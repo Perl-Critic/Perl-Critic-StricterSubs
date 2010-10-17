@@ -105,7 +105,7 @@ sub violates {
         next if is_qualified_name( $elem );
         next if $self->_is_exempt_subroutine( $elem, \@included_packages );
 
-        my ( $name ) = ( $elem =~ m{&?(\w+)}mx );
+        my ( $name ) = ( $elem =~ m{&?(\w+)}mxs );
         if ( not exists $defined_sub_names{$name} ){
             my $expl = q{This might be a major bug};
             my $desc = qq{Subroutine "$elem" is neither declared nor explicitly imported};

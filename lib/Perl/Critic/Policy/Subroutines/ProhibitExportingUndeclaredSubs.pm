@@ -44,7 +44,7 @@ sub violates {
     my @exported_sub_names = ();
     eval { @exported_sub_names = find_exported_subroutine_names( $doc ) };
 
-    if ( $EVAL_ERROR =~ m/Found \s multiple/mx ) {
+    if ( $EVAL_ERROR =~ m/Found \s multiple/mxs ) {
         my $pname = policy_short_name(__PACKAGE__);
         my $fname = $doc->filename() || 'unknown';
         warn qq{$pname: $EVAL_ERROR in file "$fname"\n};
