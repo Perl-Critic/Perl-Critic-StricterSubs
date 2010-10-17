@@ -188,7 +188,7 @@ sub _get_imports_from_use_statements {
     # arguments.
 
     my @schildren = $use_stmnt->schildren();
-    my @import_args = @schildren[2, -2];
+    my @import_args = @schildren[2 .. $#schildren - 1];
 
     my $first_import_arg = $import_args[0];
     return if not defined $first_import_arg;

@@ -9,6 +9,9 @@
 
     "use 5.006001" in Makefile.PL and Build.PL.
 
+    Fixed RT #62184. All subroutines imported in a quoted but
+    unparenthesized list are now seen by ProhibitCallsToUndeclaredSubs.
+
 [0.03] Released on 2008-01-10
 
      Fixed test failures due to incompatibility with newer
