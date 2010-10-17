@@ -193,7 +193,7 @@ sub _get_file_name_for_package_name {
 
 #-----------------------------------------------------------------------------
 
-sub _find_file_in_at_INC {
+sub _find_file_in_at_INC {  ## no critic (NamingConventions::Capitalization)
     my ($self, $partial_path) = @_;
 
     my $inc = $self->_get_inc();
