@@ -42,14 +42,19 @@ sub violates {
     my ($self, $elem, $doc) = @_;
 
     my @exported_sub_names = ();
-    eval { @exported_sub_names = find_exported_subroutine_names( $doc ) };
+    eval {
+        @exported_sub_names = find_exported_subroutine_names( $doc );
+        1;
+    } or do {
 
-    if ( $EVAL_ERROR =~ m/Found \s multiple/mxs ) {
-        my $pname = policy_short_name(__PACKAGE__);
-        my $fname = $doc->filename() || 'unknown';
-        warn qq{$pname: $EVAL_ERROR in file "$fname"\n};
-        return;
-    }
+        if ( $EVAL_ERROR =~ m/Found \s multiple/mxs ) {
+            my $pname = policy_short_name(__PACKAGE__);
+            my $fname = $doc->filename() || 'unknown';
+            warn qq{$pname: $EVAL_ERROR in file "$fname"\n};
+            return;
+        }
+
+    };
 
     my @declared_sub_names = find_declared_subroutine_names( $doc );
     my @declared_constants = find_declared_constant_names( $doc );
