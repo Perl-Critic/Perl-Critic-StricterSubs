@@ -247,6 +247,20 @@ sub example {
     my $something = shift->method();
 }
 
+## name Allow __PACKAGE__->foo(). RT #43314 and 44609
+## failures 0
+## cut
+
+__PACKAGE__->foo();
+
+## name Still prohibit __PACKAGE__ in sub and var. RT #43314 and 44609
+## failures 3
+## cut
+
+__PACKAGE__::foo();
+&__PACKAGE__::foo();
+$__PACKAGE__::bar;
+
 ##############################################################################
 # Local Variables:
 #   mode: cperl

@@ -12,6 +12,9 @@
     Fixed RT #62184. All subroutines imported in a quoted but
     unparenthesized list are now seen by ProhibitCallsToUndeclaredSubs.
 
+    Fixed RT #43314 and 44609. Modules::RequireExplicitInclusion now
+    allows __PACKAGE__->foo().
+
 [0.03] Released on 2008-01-10
 
      Fixed test failures due to incompatibility with newer

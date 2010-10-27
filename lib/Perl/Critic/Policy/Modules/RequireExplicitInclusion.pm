@@ -105,7 +105,15 @@ sub _find_class_method_calls {
                 return
                          $elem->isa('PPI::Token::Word')
                      &&  is_class_name( $elem )
-                     && !is_perl_builtin( $elem );
+                     && !is_perl_builtin( $elem )
+                     && '__PACKAGE__' ne $elem->content();  # RT 43314, 44609
+                     # From a design standpoint we should filter later, but
+                     # the violation code is generic. The patch included with
+                     # 44609, or adding '__PACKAGE__ to @builtin_packages,
+                     # would have also allowed, willy-nilly,
+                     # __PACKAGE__::foo() or $__PACKAGE__::foo, neither of
+                     # which is correct. So I just hid __PACKAGE__->foo() from
+                     # the violation logic. Mea culpa! Tom Wyant
             }
         );
 
