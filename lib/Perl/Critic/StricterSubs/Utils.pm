@@ -193,16 +193,33 @@ sub _get_imports_from_use_statements {
     my $first_import_arg = $import_args[0];
     return if not defined $first_import_arg;
 
-    return parse_quote_words( $first_import_arg )
-        if $first_import_arg->isa('PPI::Token::QuoteLike::Words');
+    # RT 43310 is a pathological case, which shows we can't simply look at the
+    # first token after the module name to tell what to do. So we iterate over
+    # the entire argument list, scavenging what we recognize, and hoping the
+    # rest is structure (commas and such).
+    my @result;
+    foreach my $import_rqst ( @import_args ) {
 
-    return parse_simple_list( $first_import_arg )
-        if $first_import_arg->isa('PPI::Structure::List');
+        defined $import_rqst
+            or next;
 
-    return parse_literal_list( @import_args )
-        if $first_import_arg->isa('PPI::Token::Quote');
+        if ( $import_rqst->isa( 'PPI::Token::QuoteLike::Words' ) ) {
 
-    return; #Don't know what to do!
+            push @result, parse_quote_words( $import_rqst );
+
+        } elsif ( $import_rqst->isa( 'PPI::Structure::List' ) ) {
+
+            push @result, parse_simple_list ( $import_rqst );
+
+        } elsif ( $import_rqst->isa( 'PPI::Token::Quote' ) ) {
+
+            push @result, $import_rqst->string();
+
+        }
+
+    }
+
+    return @result;
 
 }
 

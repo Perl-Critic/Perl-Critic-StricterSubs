@@ -326,6 +326,17 @@ my $x = bar(123);
 my $y = quux(123);
 my $z = xyzzy(123);
 
+## name Import with version number RT #43310
+## failures 0
+## cut
+
+use HTTP::Status '5.187' => qw{ HTTP_INTERNAL_SERVER_ERROR };
+HTTP_INTERNAL_SERVER_ERROR();
+
+use Frobozz 42 'bazzle', qw{ boozle };
+bazzle();
+boozle();
+
 ##############################################################################
 # Local Variables:
 #   mode: cperl

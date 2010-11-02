@@ -15,6 +15,9 @@
     Fixed RT #43314 and 44609. Modules::RequireExplicitInclusion now
     allows __PACKAGE__->foo().
 
+    Fixed RT #43310. Subroutines::ProhibitCallsToUndeclaredSubs now
+    handles imports that specify version number.
+
 [0.03] Released on 2008-01-10
 
      Fixed test failures due to incompatibility with newer
