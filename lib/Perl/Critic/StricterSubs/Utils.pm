@@ -49,10 +49,15 @@ our @EXPORT_OK = qw{
 
 sub parse_simple_list {
     my ($list_node) = @_;
-    my $strings_ref = $list_node->find('PPI::Token::Quote');
-    return if not $strings_ref;
 
-    my @strings = map { $_->string() } @{ $strings_ref };
+    # Per RT 36783, lists may contain qw{...} strings as well as words. We
+    # don't need to look for nested lists because they are of interest only
+    # for their contents, which we get by looking for them directly.
+    my @strings = map { $_->string() }
+        @{ $list_node->find( 'PPI::Token::Quote' ) || [] };
+    push @strings, map { parse_quote_words( $_ ) }
+        @{ $list_node->find( 'PPI::Token::QuoteLike::Words' ) || [] };
+
     return @strings; #Just hoping that these are single words
 }
 
@@ -71,7 +76,7 @@ sub parse_literal_list {
 
 sub parse_quote_words {
     my ($qw_elem) = @_;
-    my ($word_string) = ( $qw_elem =~ m{\A qw. (.*) .\z}msx );
+    my ($word_string) = ( $qw_elem =~ m{\A qw \s* . (.*) .\z}msx );
     my @words = words_from_string( $word_string || $EMPTY );
     return @words;
 }

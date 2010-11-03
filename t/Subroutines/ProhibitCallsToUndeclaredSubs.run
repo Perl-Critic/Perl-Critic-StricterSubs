@@ -337,6 +337,16 @@ use Frobozz 42 'bazzle', qw{ boozle };
 bazzle();
 boozle();
 
+## name Nested lists RT #36783
+## failures 0
+## cut
+
+use List::Util ( qw { min } );
+min( 1, 2 );
+
+use Scalar::Util ( ( 'blessed' ) );
+blessed( $foo );
+
 ##############################################################################
 # Local Variables:
 #   mode: cperl

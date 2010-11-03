@@ -18,6 +18,9 @@
     Fixed RT #43310. Subroutines::ProhibitCallsToUndeclaredSubs now
     handles imports that specify version number.
 
+    Fixed RT #36783. Subroutines::ProhibitCallsToUndeclaredSubs now
+    handles qw{...} strings inside a list.
+
 [0.03] Released on 2008-01-10
 
      Fixed test failures due to incompatibility with newer
