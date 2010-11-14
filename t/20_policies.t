@@ -15,9 +15,10 @@ my $subtests = subtests_in_tree( 't' );
 #   perl -Ilib t/20_policies.t BuiltinFunctions::ProhibitLvalueSubstr
 if (@ARGV) {
     my @policies = keys %{$subtests};
+    my @regexps = map { qr{ \Q$_\E }smx } @ARGV;
     # This is inefficient, but who cares...
     for my $p (@policies) {
-        if (0 == grep {$_ eq $p} @ARGV) {
+        if (0 == grep { $p =~ $_ } @regexps) {
             delete $subtests->{$p};
         }
     }
