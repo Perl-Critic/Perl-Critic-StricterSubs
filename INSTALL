@@ -28,7 +28,7 @@ INSTALLATION
          perl Makefile.PL
          make
          make test
-         make install 
+         make install
 
      Or if you prefer C<Module::Build>, try this:
 
@@ -37,4 +37,4 @@ INSTALLATION
          perl Build.pl
          ./Build
          ./Build test
-         ./Build install 
+         ./Build install
