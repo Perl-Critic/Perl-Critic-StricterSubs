@@ -35,7 +35,7 @@ for my $file (@pm)
          next if ($name !~ m/::/xms);
 
          #diag("Check pkg $name");
-         
+
          my $token = $pkg->next_sibling;
          if ($token =~ m/\A\(/xms)
          {
