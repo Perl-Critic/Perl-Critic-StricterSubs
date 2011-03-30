@@ -22,7 +22,6 @@ WriteMakefile( NAME           => 'Perl::Critic::StricterSubs',
                                   'Perl::Critic::Violation' => 1.052,
                                   'Perl::Critic::TestUtils' => 1.052,
                                   'Test::More'              => 0,
-                                  'Test::Deep'              => 0,
                                   'File::PathList'          => 0,
                               },
 

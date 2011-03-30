@@ -66,7 +66,6 @@ my $builder = $class->new(
     },
     build_requires  => {
         'Test::More'                => 0,
-        'Test::Deep'                => 0,
     },
     meta_merge      => {
         resources   => {
