@@ -1,6 +1,8 @@
 /Build
 /MANIFEST
+/META.json
 /META.yml
+/MYMETA.json
 /MYMETA.yml
 /Makefile
 /Perl-Critic-StricterSubs-*
