@@ -313,6 +313,7 @@ sub _is_subroutine_call {
 
         return 0 if is_perl_builtin( $elem );
         return 0 if _smells_like_filehandle( $elem );
+        return 0 if _smells_like_label( $elem );
         return 1 if is_function_call( $elem );
 
     }
@@ -364,6 +365,51 @@ sub _smells_like_filehandle {
     if ( my $left_uncle = $enclosing_node->sprevious_sibling ){
         return exists $functions_that_take_filehandles{ $left_uncle }
           && is_function_call( $left_uncle );
+    }
+
+    return;
+}
+
+#-----------------------------------------------------------------------------
+
+my %functions_that_take_labels =
+    hashify( qw( last next redo ) );
+
+# The following is cribbed shamelessly from _looks_like_filehandle. TRW
+
+sub _smells_like_label {
+    my ($elem) = @_;
+    return if not $elem;
+
+    #--------------------------------------------------------------------
+    # This handles calls *without* parens, for example:
+    # next FOO
+    # last BAR
+    # redo BAZ
+
+    if ( my $left_sib = $elem->sprevious_sibling ){
+        return exists $functions_that_take_labels{ $left_sib };
+    }
+
+    #--------------------------------------------------------------------
+    # This handles calls *with* parens, for example:
+    # next ( FOO )
+    # last ( BAR )
+    # redo ( BAZ )
+    #
+    # The above actually work, at least under 5.6.2 and 5.14.2.
+    # next { FOO }
+    # does _not_ work under those Perls, so we don't check for it.
+
+    my $expression = $elem->parent() || return;
+    my $enclosing_node = $expression->parent() || return;
+
+    return if ! ( $enclosing_node->isa('PPI::Structure::List') );
+
+    return if $enclosing_node->schild(0) != $expression;
+
+    if ( my $left_uncle = $enclosing_node->sprevious_sibling ){
+        return exists $functions_that_take_labels{ $left_uncle };
     }
 
     return;

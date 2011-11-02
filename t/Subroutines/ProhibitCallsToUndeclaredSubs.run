@@ -347,6 +347,31 @@ min( 1, 2 );
 use Scalar::Util ( ( 'blessed' ) );
 blessed( $foo );
 
+## name Loop labels with qualifiers RT #72022
+## failures 0
+## cut
+
+sub try_something { return 0 };
+
+FOO: while ($some_condition) {
+    next FOO if $bar;
+    # do something
+}
+
+BAR: while ($some_condition) {
+    try_something() or last BAR;
+}
+
+BAZ: while ($some_condition) {
+    redo ( BAZ ) if $bar;
+    # do something
+}
+
+BURFLE: while ($some_condition) {
+    try_something() or next ( BURFLE );
+}
+
+
 ##############################################################################
 # Local Variables:
 #   mode: cperl
