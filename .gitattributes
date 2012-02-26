@@ -4,6 +4,7 @@
 /Changes -text
 /INSTALL -text
 /LICENSE -text
+/MANIFEST -text
 /MANIFEST.SKIP -text
 /Makefile.PL -text
 /build.xml -text
