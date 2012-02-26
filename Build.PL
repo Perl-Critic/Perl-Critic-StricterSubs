@@ -67,6 +67,9 @@ my $builder = $class->new(
     build_requires  => {
         'Test::More'                => 0,
     },
+
+    add_to_cleanup  => [ qw(MANIFEST.bak README) ],
+
     meta_merge      => {
         resources   => {
             homepage    => 'http://perlcritic.com',
