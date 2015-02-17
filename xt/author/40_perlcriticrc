@@ -1,9 +1,3 @@
-##############################################################################
-#      $URL$
-#     $Date$
-#   $Author$
-# $Revision$
-##############################################################################
 
 severity = 1
 theme = core
@@ -20,10 +14,6 @@ theme = core
 [Documentation::RequirePodSections]
 lib_sections    = NAME|AFFILIATION|DESCRIPTION|AUTHOR|COPYRIGHT
 script_sections = NAME|AFFILIATION|DESCRIPTION|AUTHOR|COPYRIGHT
-
-# svn is good
-[Miscellanea::RequireRcsKeywords]
-keywords = URL Date Author Revision
 
 # No tabs, ever.
 [CodeLayout::ProhibitHardTabs]
