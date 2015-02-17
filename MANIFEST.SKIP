@@ -3,6 +3,9 @@
 \bCVS\b
 ,v$
 \B\.svn\b
+\B\.git\b
+\B\.gitignore$
+\B\.gitattributes$
 \B\.cvsignore$
 
 # Avoid Makemaker generated and utility files.
