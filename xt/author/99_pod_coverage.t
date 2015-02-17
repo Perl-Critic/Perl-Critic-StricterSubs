@@ -1,18 +1,9 @@
 #!perl
 
-##############################################################################
-#     $URL$
-#    $Date$
-#   $Author$
-# $Revision$
-##############################################################################
-
 use strict;
 use warnings;
 use Test::More;
-
-eval 'use Test::Pod::Coverage 1.04'; ## no critic
-plan skip_all => 'Test::Pod::Coverage 1.00 requried to test POD' if $@;
+use Test::Pod::Coverage;
 
 {
     # HACK: Perl::Critic::Violation uses Pod::Parser to extract the

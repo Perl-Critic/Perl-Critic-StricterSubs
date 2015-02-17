@@ -1,14 +1,9 @@
 #!perl -w
+
 use warnings;
 use strict;
 use File::Find;
 use Test::More;
-
-use Perl::Critic::TestUtils qw{ should_skip_author_tests get_author_test_skip_message };
-
-if (should_skip_author_tests()) {
-    plan skip_all => get_author_test_skip_message();
-}
 
 plan 'no_plan';
 

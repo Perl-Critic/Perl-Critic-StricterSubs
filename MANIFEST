@@ -14,11 +14,6 @@ MANIFEST			This list of files
 t/20_policies.t
 t/40_criticize.t
 t/40_perlcriticrc
-t/93_version.t
-t/94_includes.t
-t/95_kwalitee.t
-t/98_pod_syntax.t
-t/99_pod_coverage.t
 t/Modules/RequireExplicitInclusion.run
 t/Subroutines/ProhibitCallsToUndeclaredSubs.run
 t/Subroutines/ProhibitCallsToUnexportedSubs.run
@@ -27,3 +22,8 @@ t/Subroutines/ProhibitQualifiedSubDeclarations.run
 t/tlib/EmptyExports.pm
 t/tlib/HasExports.pm
 t/tlib/NoExports.pm
+xt/author/93_version.t
+xt/author/94_includes.t
+xt/author/95_kwalitee.t
+xt/author/98_pod_syntax.t
+xt/author/99_pod_coverage.t
