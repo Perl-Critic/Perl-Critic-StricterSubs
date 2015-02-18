@@ -38,20 +38,12 @@
 # Avoid OS-specific files/dirs
 #   Mac OSX metadata
 \B\.DS_Store
-#   Mac OSX SMB mount metadata files
 \B\._
 
 # Avoid archives of this distribution
 \bPerl-Critic-StricterSubs-[\d\.\_]+
 
-# Avoid etc files
-\betc\b
-
-# Avoid Eclipse files.
-\.project\b
-^\.includepath$
-
-# Avoid my Ant build script
-^build\.xml$
+# Avoid local META files.
 ^MYMETA.yml$
 ^MYMETA\.json$
+
