@@ -46,7 +46,6 @@ my $builder = $class->new(
     dist_author     => 'Jeffrey Thalhammer <thaljef@cpan.org>',
     dist_abstract   => 'Perl::Critic plugin for stricter subroutine checking',
     license         => 'perl',
-    dynamic_config  => 1,
     create_readme   => 1,
     create_packlist => 1,
     sign            => 0,
@@ -62,14 +61,18 @@ my $builder = $class->new(
         'Test::More'                => 0,
     },
 
+    configure_requires => {
+        'Module::Build'             => 0.40,
+    },
+
     add_to_cleanup  => [ qw(MANIFEST.bak README) ],
 
-    meta_merge      => {
-        resources   => {
+    meta_merge  => {
+        resources  => {
             homepage    => 'http://perlcritic.com',
-            license     => 'http://dev.perl.org/licenses/',
-            repository  => 'http://guest@perlcritic.tigris.org/svn/perlcritic/trunk/distributions/Perl-Critic-StricterSubs/',
-            MailingList => 'http://perlcritic.tigris.org/servlets/SummarizeList?listName=users',
+            license     => [ 'http://dev.perl.org/licenses' ],
+            repository  => 'git://github.com/Perl-Critic/Perl-Critic-StricterSubs.git',
+            bugtracker  => 'https://github.com/Perl-Critic/Perl-Critic-StricterSubs/issues',
         }
     },
 );
