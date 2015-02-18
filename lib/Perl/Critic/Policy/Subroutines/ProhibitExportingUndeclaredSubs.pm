@@ -1,10 +1,3 @@
-##############################################################################
-#      $URL: http://perlcritic.tigris.org/svn/perlcritic/trunk/Perl-Critic-StricterSubs/lib/Perl/Critic/Policy/Modules/ProhibitExportingUndeclaredSubs.pm $
-#     $Date: 2007-04-06 11:58:16 -0700 (Fri, 06 Apr 2007) $
-#   $Author: thaljef $
-# $Revision: 1391 $
-##############################################################################
-
 package Perl::Critic::Policy::Subroutines::ProhibitExportingUndeclaredSubs;
 
 use strict;
@@ -27,7 +20,7 @@ use Perl::Critic::StricterSubs::Utils qw(
 
 #-----------------------------------------------------------------------------
 
-our $VERSION = 0.03;
+our $VERSION = 0.04;
 
 #-----------------------------------------------------------------------------
 

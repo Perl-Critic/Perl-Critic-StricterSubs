@@ -1,10 +1,3 @@
-##############################################################################
-#      $URL: http://perlcritic.tigris.org/svn/perlcritic/trunk/Perl-Critic-StricterSubs/lib/Perl/Critic/Policy/Modules/ProhibitCallsToUnexportedSubs.pm $
-#     $Date: 2007-04-10 17:56:54 -0700 (Tue, 10 Apr 2007) $
-#   $Author: clonezone $
-# $Revision: 1439 $
-##############################################################################
-
 package Perl::Critic::Policy::Subroutines::ProhibitCallsToUnexportedSubs;
 
 use strict;
@@ -31,7 +24,7 @@ use Perl::Critic::StricterSubs::Utils qw{
 
 #-----------------------------------------------------------------------------
 
-our $VERSION = 0.03;
+our $VERSION = 0.04;
 
 #-----------------------------------------------------------------------------
 

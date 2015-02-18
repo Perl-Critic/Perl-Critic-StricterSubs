@@ -1,10 +1,3 @@
-##############################################################################
-#      $URL$
-#     $Date$
-#   $Author$
-# $Revision$
-##############################################################################
-
 package Perl::Critic::Policy::Modules::RequireExplicitInclusion;
 
 use strict;
@@ -29,7 +22,7 @@ use Perl::Critic::StricterSubs::Utils qw(
 
 #-----------------------------------------------------------------------------
 
-our $VERSION = 0.03;
+our $VERSION = 0.04;
 
 my $expl =
     'Without importing a package, it is unlikely that references to things inside it even exist.';
