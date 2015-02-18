@@ -65,7 +65,7 @@ my $builder = $class->new(
         'Module::Build'             => 0.40,
     },
 
-    add_to_cleanup  => [ qw(MANIFEST.bak README) ],
+    add_to_cleanup  => [ qw(MANIFEST MANIFEST.bak README META*) ],
 
     meta_merge  => {
         resources  => {
