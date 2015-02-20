@@ -22,7 +22,7 @@ use Perl::Critic::StricterSubs::Utils qw(
 
 #-----------------------------------------------------------------------------
 
-our $VERSION = 0.04;
+our $VERSION = 0.05;
 
 my $expl =
     'Without importing a package, it is unlikely that references to things inside it even exist.';
