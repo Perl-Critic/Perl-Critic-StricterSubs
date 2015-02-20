@@ -1,5 +1,10 @@
 Revision history for Perl module Perl::Critic::StricterSubs
 
+0.05 2015-02-20
+
+    [Bug Fixes]
+    * Corrected dependencies listed in the META files. GH #1
+
 0.04 2015-02-18
 
     [Bug Fixes]

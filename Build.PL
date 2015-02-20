@@ -51,14 +51,13 @@ my $builder = $class->new(
     sign            => 0,
 
     requires        => {
-        'Perl::Critic'              => 1.082,
+        'Perl::Critic::Policy'      => 1.082,
         'Perl::Critic::Utils'       => 1.082,
-        'Perl::Critic::Violation'   => 1.082,
-        'Perl::Critic::TestUtils'   => 1.082,
         'File::PathList'            => 0,
     },
-    build_requires  => {
+    test_requires  => {
         'Test::More'                => 0,
+        'Perl::Critic::TestUtils'   => 1.082,
     },
 
     configure_requires => {
