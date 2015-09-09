@@ -117,10 +117,10 @@ Policies in this distro all belong to the "strictersubs" theme, so
 you can disable all of them at once using either of these methods:
 
   # In your .perlcriticrc file...
-  theme = no strictersubs
+  theme = not strictersubs
 
   # With the perlcritic command-line...
-  $> perlcritic --theme='no stricter_subs' MyModule.pm
+  $> perlcritic --theme='not strictersubs' MyModule.pm
 
 See L<Perl::Critic/"CONFIGURATION"> section for more information about
 configuring the L<Perl::Critic|Perl::Critic> engine.
