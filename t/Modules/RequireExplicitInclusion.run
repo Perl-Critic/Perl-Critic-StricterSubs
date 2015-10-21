@@ -261,6 +261,14 @@ __PACKAGE__::foo();
 &__PACKAGE__::foo();
 $__PACKAGE__::bar;
 
+
+## name Allow disambiguated class names
+## failures 0
+## cut
+
+use Foo::Bar;
+Foo::Bar::->test();
+
 ##############################################################################
 # Local Variables:
 #   mode: cperl
