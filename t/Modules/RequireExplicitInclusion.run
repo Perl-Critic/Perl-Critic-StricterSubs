@@ -266,6 +266,12 @@ $__PACKAGE__::bar;
 ## cut
 utf8::is_utf8("abc");
 
+## name Allow calling functions in the overload module without including it
+## failures 0
+## cut
+overload::Overloaded("abc");
+
+
 ##############################################################################
 # Local Variables:
 #   mode: cperl

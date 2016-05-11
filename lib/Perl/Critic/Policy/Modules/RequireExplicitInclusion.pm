@@ -49,7 +49,7 @@ sub violates {
     }
 
     my @included_packages = get_package_names_from_include_statements($doc);
-    my @builtin_packages = ( qw(main UNIVERSAL CORE CORE::GLOBAL utf8), $EMPTY );
+    my @builtin_packages = ( qw(main UNIVERSAL CORE CORE::GLOBAL utf8 overload), $EMPTY );
 
     my %all_packages =
         hashify( @declared_packages, @included_packages, @builtin_packages );
