@@ -155,7 +155,7 @@ sub _extract_package_from_subroutine_call {
     # to (but not including) the last "::".
 
     my $word = shift;
-    if ($word->content() =~ m/\A ( .* ) :: [^:]+ \z/xms) {
+    if ($word->content() =~ m/\A ( .* ) :: [^:]* \z/xms) {
         return $1;
     }
 
