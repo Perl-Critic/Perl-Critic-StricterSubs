@@ -1,5 +1,12 @@
 Revision history for Perl module Perl::Critic::StricterSubs
 
+0.06
+
+    [Enhancements]
+    * Modules::RequireExplicitInclusion: Disambiguated package names,
+      such as Foo::Bar:: instead of just Foo::Bar, are now OK.
+      Thanks, Olaf Alders and Klaus S. Madsen.
+
 0.05 2015-02-20
 
     [Bug Fixes]

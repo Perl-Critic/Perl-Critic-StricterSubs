@@ -143,6 +143,11 @@ sub _extract_package_from_class_method_call {
     # which should be everything to the left of "->"
 
     my $word = shift;
+
+    # Remove trailing double colon, which is allowed and can be used for
+    # disambiguation.
+    $word =~ s/::$//;
+
     return $word;
 }
 
@@ -155,7 +160,7 @@ sub _extract_package_from_subroutine_call {
     # to (but not including) the last "::".
 
     my $word = shift;
-    if ($word->content() =~ m/\A ( .* ) :: [^:]+ \z/xms) {
+    if ($word->content() =~ m/\A ( .* ) :: [^:]* \z/xms) {
         return $1;
     }
 
