@@ -146,7 +146,7 @@ sub _extract_package_from_class_method_call {
 
     # Remove trailing double colon, which is allowed and can be used for
     # disambiguation.
-    $word =~ s/::$//;
+    $word =~ s/::$//xms;
 
     return $word;
 }
