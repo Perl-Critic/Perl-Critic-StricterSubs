@@ -1,6 +1,6 @@
 Revision history for Perl module Perl::Critic::StricterSubs
 
-0.06
+0.06 2022-04-25
 
     [Enhancements]
     * Modules::RequireExplicitInclusion: Disambiguated package names,
