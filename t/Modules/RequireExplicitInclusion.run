@@ -269,6 +269,11 @@ $__PACKAGE__::bar;
 use Foo::Bar;
 Foo::Bar::->test();
 
+## name Allow calling functions in the utf8 module without including it
+## failures 0
+## cut
+utf8::is_utf8("abc");
+
 ##############################################################################
 # Local Variables:
 #   mode: cperl
