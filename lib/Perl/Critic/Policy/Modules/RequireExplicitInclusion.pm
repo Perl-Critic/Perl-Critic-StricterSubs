@@ -44,7 +44,7 @@ sub violates {
     if ( @declared_packages > 1 ) {
         my $fname = $doc->filename() || 'unknown';
         my $pname = policy_short_name(__PACKAGE__);
-        warn qq{$pname: Cannot cope with mutiple packages in file "$fname"\n};
+        warn qq{$pname: Cannot cope with multiple packages in file "$fname"\n};
         return;
     }
 
@@ -404,7 +404,7 @@ None.
 
 =over
 
-=item C<Modules::RequireExplicitInclusion: Cannot cope with mutiple packages in file>
+=item C<Modules::RequireExplicitInclusion: Cannot cope with multiple packages in file>
 
 This warning happens when the file under analysis contains multiple packages,
 which is not currently supported.  This Policy will simply ignore any file
