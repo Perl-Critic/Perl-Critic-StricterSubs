@@ -92,7 +92,7 @@ sub violates {
 
     my @included_packages = get_package_names_from_include_statements( $doc );
 
-    my @violations = ();
+    my @violations;
     for my $elem ( find_subroutine_calls($doc) ){
 
         next if is_qualified_name( $elem );

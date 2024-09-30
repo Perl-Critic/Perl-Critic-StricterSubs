@@ -99,7 +99,7 @@ sub get_package_names_from_package_statements {
 #-----------------------------------------------------------------------------
 
 sub _wanted_include_statement {
-    my ($doc, $element) = @_;
+    my (undef, $element) = @_;
 
     return 0 if not $element->isa('PPI::Statement::Include');
 
@@ -121,7 +121,7 @@ sub _find_exported_names {
     @export_types = @export_types ?
                     @export_types : qw{@EXPORT @EXPORT_OK};
 
-    my @all_exports = ();
+    my @all_exports;
     for my $export_type( @export_types ) {
 
         my $export_assignment = _find_export_assignment( $doc, $export_type );
@@ -152,7 +152,10 @@ sub find_declared_subroutine_names {
     return if not $sub_nodes;
 
     my @sub_names = map { $_->name() } @{ $sub_nodes };
-    for (@sub_names) { s{\A .*::}{}mxs };  # Remove leading package name
+    for ( @sub_names ) {
+        s{\A .*::}{}mxs;  # Remove leading package name
+    }
+
     return @sub_names;
 }
 
@@ -228,7 +231,7 @@ sub find_declared_constant_names {
 
     my $constant_pragmas_ref = $doc->find( \&_is_constant_pragma );
     return if not $constant_pragmas_ref;
-    my @declared_constants = ();
+    my @declared_constants;
 
     for my $constant_pragma ( @{$constant_pragmas_ref} ) {
 
@@ -300,7 +303,7 @@ sub find_subroutine_calls {
 #-----------------------------------------------------------------------------
 
 sub _is_subroutine_call {
-    my ($doc, $elem) = @_;
+    my (undef, $elem) = @_;
 
     if ( $elem->isa('PPI::Token::Word') ) {
 
@@ -452,7 +455,7 @@ sub get_all_subs_from_list_of_symbols {
     my @sub_names = grep { m/\A [&\w]/mxs } @symbols;
     for (@sub_names) { s/\A &//mxs; } # Remove optional sigil
 
-    return @sub_names
+    return @sub_names;
 }
 
 #-----------------------------------------------------------------------------
@@ -484,7 +487,7 @@ sub _make_assignment_finder {
 
     my $finder = sub {
 
-        my ($doc, $elem) = @_;
+        my (undef, $elem) = @_;
 
         return 0 if not $elem->isa('PPI::Token::Symbol');
         return 0 if $elem ne $wanted_symbol;
@@ -511,7 +514,7 @@ sub _parse_export_list {
 
 
     # Gather up remaining elements
-    my @left_hand_side = ();
+    my @left_hand_side;
     while ( $snext_sibling = $snext_sibling->snext_sibling() ) {
         push @left_hand_side, $snext_sibling;
     }

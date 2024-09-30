@@ -188,7 +188,7 @@ sub _extract_package_from_symbol {
 sub _find_violations {
 
     my ($self, $doc, $included_packages, $finder, $package_extractor) = @_;
-    my @violations = ();
+    my @violations;
 
     for my $call ( $finder->( $doc ) ) {
         my $package = $package_extractor->( $call );
