@@ -87,7 +87,7 @@ sub _get_inc {
 
 sub _get_exports_by_package {
     my $self = shift;
-    return $self->{_exports_by_package}
+    return $self->{_exports_by_package};
 }
 
 #-----------------------------------------------------------------------------
@@ -95,13 +95,13 @@ sub _get_exports_by_package {
 sub violates {
     my ($self, undef, $doc) = @_;
 
-    my @violations   = ();
+    my @violations;
     my $expl = q{Violates encapsulation};
 
     for my $sub_call ( find_subroutine_calls($doc) ) {
         next if not is_qualified_name( $sub_call );
 
-        my ($package, $sub_name)  = $self->_parse_subroutine_call( $sub_call );
+        my ($package, $sub_name) = _parse_subroutine_call( $sub_call );
         next if _is_builtin_package( $package );
 
         my $exports = $self->_get_exports_for_package( $package );
@@ -119,7 +119,7 @@ sub violates {
 #-----------------------------------------------------------------------------
 
 sub _parse_subroutine_call {
-    my ($self, $sub_call) = @_;
+    my ($sub_call) = @_;
     return if not $sub_call;
 
     my $sub_name     = $EMPTY;
@@ -148,7 +148,7 @@ sub _get_exports_for_package {
 
         if ($file_name) {
             $exports =
-                { hashify ( $self->_get_exports_from_file( $file_name ) ) };
+                { hashify( _get_exports_from_file( $file_name ) ) };
         }
 
         $self->_get_exports_by_package()->{$package_name} = $exports;
@@ -160,7 +160,7 @@ sub _get_exports_for_package {
 #-----------------------------------------------------------------------------
 
 sub _get_exports_from_file {
-    my ($self, $file_name) = @_;
+    my ($file_name) = @_;
 
     my $doc = PPI::Document->new($file_name);
     if (not $doc) {
