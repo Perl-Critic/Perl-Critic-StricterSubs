@@ -321,7 +321,43 @@ sub _is_subroutine_call {
 #-----------------------------------------------------------------------------
 
 my %functions_that_take_filehandles =
-    hashify( qw(print printf read write sysopen tell open close) );
+    hashify( qw(
+        binmode
+        close
+        eof
+        fileno
+        flock
+        getc
+        open
+        print
+        printf
+        read
+        seek
+        select
+        sysopen
+        sysread
+        sysseek
+        syswrite
+        tell
+        truncate
+        write
+    ) );
+
+
+my %functions_that_take_dirhandles =
+    hashify( qw(
+        closedir
+        opendir
+        readdir
+        rewinddir
+        seekdir
+        telldir
+    ) );
+
+my %functions_that_take_handleish_things = (
+    %functions_that_take_filehandles,
+    %functions_that_take_dirhandles,
+);
 
 sub _smells_like_filehandle {
     my ($elem) = @_;
@@ -334,7 +370,7 @@ sub _smells_like_filehandle {
     # close HANDLE;
 
     if ( my $left_sib = $elem->sprevious_sibling ){
-        return exists $functions_that_take_filehandles{ $left_sib }
+        return exists $functions_that_take_handleish_things{ $left_sib }
           && is_function_call( $left_sib );
     }
 
@@ -356,7 +392,7 @@ sub _smells_like_filehandle {
     return if $enclosing_node->schild(0) != $expression;
 
     if ( my $left_uncle = $enclosing_node->sprevious_sibling ){
-        return exists $functions_that_take_filehandles{ $left_uncle }
+        return exists $functions_that_take_handleish_things{ $left_uncle }
           && is_function_call( $left_uncle );
     }
 
