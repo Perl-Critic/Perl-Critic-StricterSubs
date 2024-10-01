@@ -33,6 +33,7 @@ our @EXPORT_OK = qw{
     &get_all_subs_from_list_of_symbols
     &get_package_names_from_include_statements
     &get_package_names_from_package_statements
+    &get_include_statements
     &parse_literal_list
     &parse_quote_words
     &parse_simple_list
@@ -79,10 +80,7 @@ sub parse_quote_words {
 sub get_package_names_from_include_statements {
     my $doc = shift;
 
-    my $statements = $doc->find( \&_wanted_include_statement );
-    return () if not $statements;
-
-    return map { $_->module() } @{$statements};
+    return map { $_->module() } get_include_statements( $doc );
 }
 
 #-----------------------------------------------------------------------------
@@ -94,6 +92,16 @@ sub get_package_names_from_package_statements {
     return () if not $statements;
 
     return map { $_->namespace() } @{$statements};
+}
+
+#-----------------------------------------------------------------------------
+
+sub get_include_statements {
+    my $doc = shift;
+
+    my $statements = $doc->find( \&_wanted_include_statement );
+
+    return $statements ? @{$statements} : ();
 }
 
 #-----------------------------------------------------------------------------
@@ -646,6 +654,11 @@ But it does not cover these:
 
 Returns a list of all the namespaces from all the packages statements
 that appear in the document.
+
+=item C<get_include_statements( $doc )>
+
+Returns a list of PPI::Statement::Include objects that appear in the
+document.
 
 =item C<find_exported_sub_names( $doc, @export_types )>
 
