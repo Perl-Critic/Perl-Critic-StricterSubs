@@ -71,6 +71,7 @@ my $builder = $class->new(
 
     test_requires  => {
         'Test::More'                => 0,
+        'Test::Warnings'            => 0,
         'Perl::Critic::TestUtils'   => 1.082,
     },
 
