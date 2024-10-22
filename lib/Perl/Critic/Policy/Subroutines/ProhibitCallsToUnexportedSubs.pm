@@ -58,10 +58,7 @@ sub new {
             split $CONFIG_PATH_SPLIT_REGEX, $config{at_inc_suffix};
     }
 
-    my $use_standard_at_inc = $config{use_standard_at_inc};
-    if (not defined $use_standard_at_inc) {
-        $use_standard_at_inc = 1;
-    }
+    my $use_standard_at_inc = $config{use_standard_at_inc} // 1;
 
     my @inc = @at_inc_prefix;
     if ($use_standard_at_inc) {
