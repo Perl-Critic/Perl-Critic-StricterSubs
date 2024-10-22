@@ -1,5 +1,9 @@
 Revision history for Perl module Perl::Critic::StricterSubs
 
+NEXT
+
+    Minimum Perl version is now 5.10.1, the same as Perl::Critic itself.
+
 0.07 2024-09-30
 
     [Enhancements]
