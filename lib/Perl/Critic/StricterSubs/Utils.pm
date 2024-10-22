@@ -489,7 +489,7 @@ sub _make_assignment_finder {
     #############################################################
     # This function returns a callback functiaon that is suitable
     # for use with the PPI::Node::find() method.  It will find
-    # all the occurances of the $wanted_symbol where the symbol
+    # all the occurrences of the $wanted_symbol where the symbol
     # is on the immediate left-hand side of the assignment operator.
     ##############################################################
 

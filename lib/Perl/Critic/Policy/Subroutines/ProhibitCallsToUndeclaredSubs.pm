@@ -60,7 +60,7 @@ sub _parse_sub_name {
     }
     else {
 
-        die qq{Sub name "$full_name" must be fully qualifed.\n};
+        die qq{Sub name "$full_name" must be fully qualified.\n};
     }
 }
 
