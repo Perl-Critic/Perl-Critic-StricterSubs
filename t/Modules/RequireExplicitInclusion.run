@@ -299,7 +299,7 @@ local $Test::Builder::Level = $Test::Builder::Level + 1;
 use Test::More;
 local $Test::Builder::Level = $Test::Builder::Level + 1;
 
-## name STDIN, STDOUT and STDOUT shouldn't cause warnings.
+## name STDIN, STDOUT and STDERR shouldn't cause warnings.
 ## failures 0
 ## cut
 

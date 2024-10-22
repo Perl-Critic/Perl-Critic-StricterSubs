@@ -11,7 +11,7 @@
 ## cut
 
 sub foo;    # Forward declaration
-sub bar {}  # Empty declaraion
+sub bar {}  # Empty declaration
 
 # Single-line declaration
 sub baz { return uc @_; }
@@ -19,7 +19,7 @@ sub baz { return uc @_; }
 # Multi-line declaration
 sub quux {
 
-        do_something( shfit );
+        do_something( shift );
         return $something;
 }
 
@@ -29,7 +29,7 @@ sub quux {
 ## cut
 
 sub Foo::foo;    # Forward declaration
-sub Foo::bar {}  # Empty declaraion
+sub Foo::bar {}  # Empty declaration
 
 # Single-line declaration
 sub Foo::Bar::baz { return uc @_; }
@@ -37,7 +37,7 @@ sub Foo::Bar::baz { return uc @_; }
 # Multi-line declaration
 sub Foo::Bar::quux {
 
-        do_something( shfit );
+        do_something( shift );
         return $something;
 }
 
